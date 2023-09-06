@@ -9,6 +9,14 @@ struct Student {
     double gpa;
 };
 
+// Функция для вывода студента в консоль
+void displayStudent(const Student& student) {
+    std::cout << "Имя: " << student.name << "\n";
+    std::cout << "Возраст: " << student.age << "\n";
+    std::cout << "Специальность: " << student.major << "\n";
+    std::cout << "Средний балл: " << student.gpa << "\n\n";
+}
+
 // Функция для добавления студента в базу данных
 void addStudent(std::vector<Student>& database) {
     Student student;
@@ -29,10 +37,7 @@ void addStudent(std::vector<Student>& database) {
 void displayStudents(const std::vector<Student>& database) {
     std::cout << "Список студентов:\n";
     for (const Student& student : database) {
-        std::cout << "Имя: " << student.name << "\n";
-        std::cout << "Возраст: " << student.age << "\n";
-        std::cout << "Специальность: " << student.major << "\n";
-        std::cout << "Средний балл: " << student.gpa << "\n\n";
+        displayStudent(student);
     }
 }
 
@@ -42,10 +47,7 @@ void displayStudentsByMajor(const std::vector<Student>& database, std::string ma
         if (student.major != major) {
             continue;
         }
-        std::cout << "Имя: " << student.name << "\n";
-        std::cout << "Возраст: " << student.age << "\n";
-        std::cout << "Специальность: " << student.major << "\n";
-        std::cout << "Средний балл: " << student.gpa << "\n\n";
+        displayStudent(student);
     }
 }
 
